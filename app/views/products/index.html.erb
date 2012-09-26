@@ -5,21 +5,27 @@
 	<div class="span8">
 		<h1>Product Nokogiri Test</h1>
 		<h4>
-			This will be the admin area where you can see the existing products and update the database of cards based on XML feed.
+			This will be the admin area where you can see the existing products and 
+			update the database of cards based on XML feed.
 		</h4>
 
-	<%= pluralize(@products.count, 'product') %>
-	<ol class="products">
-			<%= render @products %>	
-		</ol>
-	</div>
+		<%= pluralize(@products.count, 'product') %>
+		<table class="table table-bordered table-hover">
+				<%= render @products %>	
+		</table>
+	</div> <!-- span8 -->
 
 	
 	<div class="span4">
 		<em>
 			Press the below button to test the parsing script
 		</em>
-		</br>
-		<%= link_to "Refresh Products", refresh_data_products_path, class: "btn btn-small btn-danger", confirm: "Warning! This process will delete all existing products and replace them with the latest provider data. It cannot be reversed. Are you sure you want to continue?", method: :post %>	
-	</div>
-</div>
+		</br></br>
+		<%= link_to "Refresh Products", refresh_data_products_path, 
+			class: "btn btn-small btn-danger", 
+			confirm: "Warning! This process will delete all existing products and replace them with the latest provider data. It cannot be reversed. Are you sure you want to continue?", method: :post %>	
+			<%= link_to "Update nodes", '#', class: "btn btn-small btn-info" %>
+			<%= link_to "Update meta", '#', class: "btn btn-small btn-info" %>
+	</div> <!-- span -->
+	
+</div> <!-- row -->
