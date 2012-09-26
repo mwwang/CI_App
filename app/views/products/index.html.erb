@@ -1,14 +1,25 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<% provide(:title, 'Products') %>
 
-<div class="center hero-unit">
-	<h1>Product Nokogiri Test</h1>
+<div class="row">
+<!-- <div class="center hero-unit"> -->
+	<div class="span8">
+		<h1>Product Nokogiri Test</h1>
+		<h4>
+			This will be the admin area where you can see the existing products and update the database of cards based on XML feed.
+		</h4>
+
+	<%= pluralize(@products.count, 'product') %>
+	<ol class="products">
+			<%= render @products %>	
+		</ol>
+	</div>
+
 	
-	<h2>
-		Press the below button to test the parsing script
-	</h2>
-	
-	<%= link_to "Refresh Products", refresh_data_products_path, class: "btn btn-large btn-primary", confirm: "Warning! This process will delete all existing products and replace them with the latest provider data. It cannot be reversed. Are you sure you want to continue?", method: :post %>
-			
-			
+	<div class="span4">
+		<em>
+			Press the below button to test the parsing script
+		</em>
+		</br>
+		<%= link_to "Refresh Products", refresh_data_products_path, class: "btn btn-small btn-danger", confirm: "Warning! This process will delete all existing products and replace them with the latest provider data. It cannot be reversed. Are you sure you want to continue?", method: :post %>	
+	</div>
 </div>

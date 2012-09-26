@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   
   def index
+    @products = Product.order("products.origin_id ASC")
   end
   
   def new
