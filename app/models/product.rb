@@ -48,6 +48,9 @@ class Product < ActiveRecord::Base
                   :q_foreign_currency_exchange_fee           ,
                   :issuer   
   
+  has_many :assignments, primary_key: :origin_id, foreign_key: :origin_id
+  has_many :categories, through: :assignments
+  
   validates :origin_id, presence: true
 
   # Refresh the data in the Product table

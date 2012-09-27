@@ -11,7 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120925074301) do
+ActiveRecord::Schema.define(:version => 20120927075608) do
+
+  create_table "assignments", :force => true do |t|
+    t.integer  "origin_id"
+    t.integer  "cat_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "assignments", ["cat_id"], :name => "index_assignments_on_cat_id"
+  add_index "assignments", ["origin_id"], :name => "index_assignments_on_origin_id"
+
+  create_table "categories", :force => true do |t|
+    t.string   "page_type"
+    t.integer  "cat_id"
+    t.string   "name"
+    t.text     "description"
+    t.text     "disclaimer"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "categories", ["cat_id"], :name => "index_categories_on_cat_id"
 
   create_table "products", :force => true do |t|
     t.integer  "origin_id"
@@ -65,5 +87,7 @@ ActiveRecord::Schema.define(:version => 20120925074301) do
     t.string   "q_foreign_currency_exchange_fee"
     t.string   "issuer"
   end
+
+  add_index "products", ["origin_id"], :name => "index_products_on_origin_id"
 
 end

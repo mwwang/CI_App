@@ -4,6 +4,10 @@ CiApp::Application.routes.draw do
     post 'refresh_data', on: :collection
   end
   
+  resources :categories do
+    post 'refresh_data', on: :collection
+  end
+  
   # get "products/new"
 
   root to: 'pages#home'

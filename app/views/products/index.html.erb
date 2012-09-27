@@ -24,8 +24,9 @@
 		<%= link_to "Refresh Products", refresh_data_products_path, 
 			class: "btn btn-small btn-danger", 
 			confirm: "Warning! This process will delete all existing products and replace them with the latest provider data. It cannot be reversed. Are you sure you want to continue?", method: :post %>	
-			<%= link_to "Update nodes", '#', class: "btn btn-small btn-info" %>
-			<%= link_to "Update meta", '#', class: "btn btn-small btn-info" %>
+			<%= link_to "Refresh Categories", refresh_data_categories_path, 
+				class: "btn btn-small btn-danger", 
+				confirm: "Warning! This process will delete all existing categories and replace them with the latest provider data. It cannot be reversed. Are you sure you want to continue?", method: :post %>		
 	</div> <!-- span -->
 	
 </div> <!-- row -->
