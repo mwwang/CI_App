@@ -1,5 +1,9 @@
 CiApp::Application.routes.draw do
   
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
   resources :products do
     post 'refresh_data', on: :collection
   end

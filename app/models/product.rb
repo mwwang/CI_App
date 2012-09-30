@@ -46,7 +46,14 @@ class Product < ActiveRecord::Base
                   :q_balance_transfer_fee                    ,
                   :foreign_currency_exchange_fee             ,
                   :q_foreign_currency_exchange_fee           ,
-                  :issuer   
+                  :issuer                                   ,
+                  :feature_flag                             ,
+                  :popular_flag,
+                  :low_apr_feature_flag,
+                  :rewards_feature_flag, 
+                  :business_feature_flag, 
+                  :bad_credit_feature_flag, 
+                  :student_feature_flag
   
   has_many :assignments, primary_key: :origin_id, foreign_key: :origin_id
   has_many :categories, through: :assignments
